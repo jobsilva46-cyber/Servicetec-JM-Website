@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Servicetec JM | Reparación de Computadores</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+--primary:#0D47A1;
+--secondary:#1976D2;
+--dark:#0F172A;
+--light:#F8FAFC;
+--success:#25D366;
+}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;scroll-behavior:smooth;}
+body{background:#081223;color:#333;overflow-x:hidden;}
+#canvas{position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;background:#081223;}
+nav{position:fixed;top:0;width:100%;padding:15px 8%;display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,.95);backdrop-filter:blur(10px);z-index:1000;}
+.brand{font-size:24px;font-weight:700;color:var(--primary);}
+nav ul{display:flex;gap:25px;list-style:none;}
+nav a{text-decoration:none;color:#333;font-weight:500;}
+header{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:40px;color:white;}
+.hero{max-width:1200px;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;}
+.hero-content h1{font-size:3.5rem;}
+.hero-content h2{margin:15px 0;font-weight:400;}
+.hero-content p{line-height:1.8;margin-bottom:25px;}
+.logo-box img{max-width:100%;width:450px;}
+.btn{display:inline-block;padding:15px 30px;background:var(--success);color:white;text-decoration:none;border-radius:50px;font-weight:600;}
+section{padding:90px 8%;}
+.section-title{text-align:center;color:white;font-size:2.5rem;margin-bottom:50px;}
+.services,.features{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:25px;}
+.card,.feature,.contact-form,.contact-info{
+background:rgba(255,255,255,.95);
+padding:25px;border-radius:15px;
+box-shadow:0 5px 15px rgba(0,0,0,.15);
+transition:.3s;
+}
+.card:hover,.feature:hover{transform:translateY(-8px);}
+.card h3,.feature h3{color:var(--primary);margin-bottom:10px;}
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:30px;}
+input,textarea{width:100%;padding:14px;margin-bottom:15px;border:1px solid #ddd;border-radius:10px;}
+button{width:100%;padding:15px;border:none;background:var(--primary);color:white;border-radius:10px;cursor:pointer;}
+footer{background:#000;color:white;text-align:center;padding:25px;}
+.whatsapp{
+position:fixed;right:25px;bottom:25px;width:65px;height:65px;
+background:#25D366;border-radius:50%;
+display:flex;align-items:center;justify-content:center;
+text-decoration:none;color:white;font-size:28px;z-index:1000;
+}
+@media(max-width:900px){
+.hero,.contact{grid-template-columns:1fr;}
+.hero{text-align:center;}
+nav ul{display:none;}
+.hero-content h1{font-size:2.5rem;}
+}
+/* ===== MARCAS ===== */
+.brands-section{
+margin-top:30px;
+text-align:center;
+}
+
+.brands-section h3{
+color:var(--primary);
+margin-bottom:20px;
+}
+
+.brands-slider{
+overflow:hidden;
+position:relative;
+width:100%;
+}
+
+.brands-track{
+display:flex;
+width:calc(200px * 16);
+animation:scrollBrands 25s linear infinite;
+}
+
+.brands-track:hover{
+animation-play-state:paused;
+}
+
+.brand-item{
+width:180px;
+height:100px;
+display:flex;
+align-items:center;
+justify-content:center;
+margin:0 10px;
+background:white;
+border-radius:12px;
+transition:.4s;
+}
+
+.brand-item img{
+max-width:120px;
+max-height:60px;
+filter:grayscale(100%);
+transition:.4s;
+}
+
+.brand-item:hover{
+transform:translateY(-8px) scale(1.08);
+box-shadow:0 10px 25px rgba(13,71,161,.25);
+}
+
+.brand-item:hover img{
+filter:grayscale(0%);
+}
+
+@keyframes scrollBrands{
+0%{
+transform:translateX(0);
+}
+100%{
+transform:translateX(-50%);
+}
+}
+
+</style>
+</head>
+<body>
+
+<canvas id="canvas"></canvas>
+
+<nav>
+<div class="brand">SERVICETEC - JM</div>
+<ul>
+<li><a href="#inicio">Inicio</a></li>
+<li><a href="#servicios">Servicios</a></li>
+<li><a href="#nosotros">Nosotros</a></li>
+<li><a href="#contacto">Contacto</a></li>
+</ul>
+</nav>
+
+<header id="inicio">
+<div class="hero">
+<div class="hero-content">
+<h1>Servicetec JM</h1>
+<h2>Reparación, mantenimiento y soporte técnico especializado.</h2>
+<p>Soluciones profesionales para computadores, portátiles, impresoras y equipos tecnológicos.</p>
+<a href="https://wa.me/573018556551" class="btn">Solicitar Soporte por WhatsApp</a>
+</div>
+<div class="logo-box">
+<img src="logos/servicetecjm.png" alt="Servicetec JM">
+</div>
+</div>
+</header>
+
+<section id="servicios">
+<h2 class="section-title">Nuestros Servicios</h2>
+<div class="services">
+<div class="card"><h3>🔍 Diagnóstico de Fallas</h3><p>Detección y análisis de problemas.</p></div>
+<div class="card"><h3>🛠 Reparación Hardware</h3><p>Reparación y cambio de componentes.</p></div>
+<div class="card"><h3>💻 Instalación Windows</h3><p>Configuración profesional.</p></div>
+<div class="card"><h3>🦠 Eliminación de Virus</h3><p>Limpieza y optimización.</p></div>
+<div class="card"><h3>⚙ Mantenimiento</h3><p>Mejora del rendimiento.</p></div>
+<div class="card"><h3>🌐 Soporte Remoto</h3><p>Asistencia sin desplazamientos.</p></div>
+</div>
+</section>
+
+<section id="nosotros">
+<h2 class="section-title">¿Por qué elegirnos?</h2>
+<div class="features">
+<div class="feature"><h3>⚡ Atención Rápida</h3></div>
+<div class="feature"><h3>🔧 Experiencia Técnica</h3></div>
+<div class="feature"><h3>🛡 Respaldo y Garantía</h3></div>
+<div class="feature"><h3>💰 Precios Justos</h3></div>
+<div class="feature"><h3>🏥 Diagnostico Inmediato</h3></div>
+<div class="feature"><h3>📍 Atención Localizada</h3></div>
+<div class="feature"><h3>🪄 Reparación Multimarca</h3></div>
+</div>
+</section>
+
+<section id="contacto">
+<h2 class="section-title">Contáctanos</h2>
+<div class="contact">
+<div class="contact-form">
+<form id="contactForm">
+<input type="text" id="nombre" placeholder="Nombre" required>
+<input type="email" id="correo" placeholder="Correo">
+<input type="tel" id="telefono" placeholder="Teléfono">
+<textarea id="mensaje" rows="5" placeholder="Describe tu solicitud"></textarea>
+<button type="submit">Enviar por WhatsApp</button>
+</form>
+</div>
+<div class="contact-info">
+<h1>Información de Contacto</h1>
+<p>📱 +57 301 855 6551</p>
+<p>📧 serviciotecnicojm2026@hotmail.com</p>
+<p>📍 Medellín, Colombia</p> <br>
+<h3>A cerca de Nosotros.</h3>
+<p>En JM Servicetec nos especializamos en brindar servicios profesionales de reparación, mantenimiento y optimización de equipos de cómputo para hogares, negocios y empresas en Medellín y sus alrededores.</p>
+<p>Nuestro compromiso es ofrecer soluciones rápidas, confiables y efectivas para garantizar el correcto funcionamiento de sus equipos tecnológicos. <br>Contamos con experiencia en diagnóstico de fallas, reparación de hardware, instalación y configuración de software, eliminación de virus, recuperación de rendimiento y actualización de componentes.</p>
+</div>
+</div>
+<div class="brands-section">
+<h2 class="section-title">Marcas Que Atendemos</h2>
+
+```
+<div class="brands-slider">
+    <div class="brands-track">
+
+        <div class="brand-item">
+            <img src="logos/hp.png" alt="HP">
+        </div>
+
+        <div class="brand-item">
+            <img src="logos/dell.png" alt="Dell">
+        </div>
+
+        <div class="brand-item">
+            <img src="logos/lenovo.png" alt="Lenovo">
+        </div>
+
+        <div class="brand-item">
+            <img src="logos/asus.png" alt="Asus">
+        </div>
+
+        <div class="brand-item">
+            <img src="logos/acer.png" alt="Acer">
+        </div>
+
+        <div class="brand-item">
+            <img src="logos/msi.png" alt="MSI">
+        </div>
+
+        <div class="brand-item">
+            <img src="logos/samsung.png" alt="Samsung">
+        </div>
+
+        <div class="brand-item">
+            <img src="logos/apple.png" alt="Apple">
+        </div>
+
+        <!-- Duplicados para efecto infinito -->
+
+        <div class="brand-item"><img src="logos/hp.png" alt="HP"></div>
+        <div class="brand-item"><img src="logos/dell.png" alt="Dell"></div>
+        <div class="brand-item"><img src="logos/lenovo.png" alt="Lenovo"></div>
+        <div class="brand-item"><img src="logos/asus.png" alt="Asus"></div>
+        <div class="brand-item"><img src="logos/acer.png" alt="Acer"></div>
+        <div class="brand-item"><img src="logos/msi.png" alt="MSI"></div>
+        <div class="brand-item"><img src="logos/samsung.png" alt="Samsung"></div>
+        <div class="brand-item"><img src="logos/apple.png" alt="Apple"></div>
+
+    </div>
+</div>
+```
+
+</div>
+</section>
+
+<footer>© 2026 Servicetec JM</footer>
+
+<a href="https://wa.me/573018556551" class="whatsapp">📱</a>
+
+<script>
+document.getElementById("contactForm").addEventListener("submit",function(e){
+e.preventDefault();
+const texto=`Hola, soy ${nombre.value}%0ACorreo: ${correo.value}%0ATeléfono: ${telefono.value}%0AMensaje: ${mensaje.value}`;
+window.open(`https://wa.me/573018556551?text=${texto}`,'_blank');
+});
+
+const canvas=document.getElementById('canvas');
+const ctx=canvas.getContext('2d');
+canvas.width=innerWidth;
+canvas.height=innerHeight;
+let particles=[];
+
+class Particle{
+constructor(){
+this.x=Math.random()*canvas.width;
+this.y=Math.random()*canvas.height;
+this.vx=(Math.random()-0.5);
+this.vy=(Math.random()-0.5);
+this.size=Math.random()*3+1;
+}
+update(){
+this.x+=this.vx; this.y+=this.vy;
+if(this.x<0||this.x>canvas.width)this.vx*=-1;
+if(this.y<0||this.y>canvas.height)this.vy*=-1;
+}
+draw(){
+ctx.beginPath();
+ctx.arc(this.x,this.y,this.size,0,Math.PI*2);
+ctx.fillStyle='#00d4ff';
+ctx.fill();
+}
+}
+for(let i=0;i<120;i++)particles.push(new Particle());
+
+function animate(){
+ctx.clearRect(0,0,canvas.width,canvas.height);
+particles.forEach(p=>{p.update();p.draw();});
+for(let a=0;a<particles.length;a++){
+for(let b=a;b<particles.length;b++){
+let dx=particles[a].x-particles[b].x;
+let dy=particles[a].y-particles[b].y;
+let d=dx*dx+dy*dy;
+if(d<12000){
+ctx.strokeStyle='rgba(0,212,255,.12)';
+ctx.beginPath();
+ctx.moveTo(particles[a].x,particles[a].y);
+ctx.lineTo(particles[b].x,particles[b].y);
+ctx.stroke();
+}
+}
+}
+requestAnimationFrame(animate);
+}
+animate();
+</script>
+</body>
+</html>
